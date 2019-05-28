@@ -56,6 +56,7 @@ public:
 
   void SetTitle(const std::wstring& strTitle);
   const std::wstring& GetTitle() const { return m_strTitle; }
+  bool HasSpecialBoolean() const { return (m_strTitle.find(L" - ") != std::string::npos); }
   CIcon& GetIcon(bool bBigIcon = true) { return bBigIcon ? m_bigIcon : m_smallIcon; }
   void SetActive(bool bActive);
   void SetAppActiveStatus(bool bAppActive);

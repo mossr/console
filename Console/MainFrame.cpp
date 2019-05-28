@@ -1723,6 +1723,7 @@ std::wstring MainFrame::FormatTitle(std::wstring strFormat, TabView * tabView, s
 			case L'A': layers.top()->str += consoleView->GetConsoleHandler().IsElevated()? L"y" : L""; break;
 			case L'U': layers.top()->str += ( consoleView->IsRunningAsUser() )? L"y" : L""; break;
 			case L'N': layers.top()->str += ( consoleView->IsRunningAsUserNetOnly() )? L"y" : L""; break;
+			case L'B': layers.top()->str += ( tabView->HasSpecialBoolean() ) ? L"D" : L""; break;
 			default:
 				goto error;
 			}
@@ -1753,6 +1754,7 @@ std::wstring MainFrame::FormatTitle(std::wstring strFormat, TabView * tabView, s
 				case L'A': defined = consoleView->GetConsoleHandler().IsElevated(); break;
 				case L'U': defined = consoleView->IsRunningAsUser(); break;
 				case L'N': defined = consoleView->IsRunningAsUserNetOnly(); break;
+				case L'B': defined = tabView->HasSpecialBoolean(); break;
 					break;
 				default:
 					goto error;
